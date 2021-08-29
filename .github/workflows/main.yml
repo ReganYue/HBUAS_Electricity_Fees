@@ -1,4 +1,4 @@
-name: 'GitHub Actions SCUT SIGN IN'
+name: 'GitHub Actions HBUAS_Ele_fees'
 
 on:
   watch:
