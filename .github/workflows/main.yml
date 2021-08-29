@@ -1,0 +1,31 @@
+name: 'GitHub Actions SCUT SIGN IN'
+
+on:
+  watch:
+    types: started
+  push:
+  schedule:
+    - cron: '20 19 * * *'
+
+jobs:
+  bot:
+    runs-on: ubuntu-latest
+    steps:
+        - name: 'Checkout codes'
+          uses: actions/checkout@v1
+        - name: 'Set up Python'
+          uses: actions/setup-python@v1
+          with:
+            python-version: '3.8'
+        - name: 'Install requirements'
+          run: |
+            python -m pip install --upgrade pip
+            pip install -r requirements.txt
+        - name: 'Get Date'
+          run: echo "::set-env name=REPORT_DATE::$(TZ=':Asia/Changsha' date '+%Y-%m-%d %T')"
+        - name: 'AutoClick'
+          env:
+            sender: ${{ secrets.sender }}
+            password: ${{ secrets.password }}
+
+          run: python main.py
