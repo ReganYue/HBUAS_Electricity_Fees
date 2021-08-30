@@ -5,7 +5,7 @@ on:
     types: started
   push:
   schedule:
-    - cron: '23 19 * * *'
+    - cron: '55 10 * * *'
 
 jobs:
   bot:
