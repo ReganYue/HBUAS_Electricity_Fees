@@ -23,7 +23,7 @@ jobs:
             pip install -r requirements.txt
         - name: 'AutoClick'
           env:
-            my_sender: ${{ secrets.SENDER }}
-            my_pass: ${{ secrets.PASSWORD }}
+            SENDER: ${{ secrets.SENDER }}
+            PASSWORD: ${{ secrets.PASSWORD }}
 
           run: python main.py
